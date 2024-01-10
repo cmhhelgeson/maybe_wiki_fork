@@ -15,7 +15,7 @@ Currently, this repo uses 2 separate authentication flows.
 
 1. Unauthenticated user registers or logs in via [Auth0 Universal login](https://auth0.com/docs/login/universal-login) (via a [custom domain](https://auth0.com/docs/brand-and-customize/custom-domains), `login.maybe.co`)
 2. Client is granted an **access token**, which is managed via the `@auth0/auth0-react` package (which uses [Authorization Code Flow with PKCE under the hood](https://auth0.com/docs/libraries/auth0-react#:~:text=Under%20the%20hood%2C%20it%20implements%C2%A0Universal%20Login%C2%A0and%20the%C2%A0Authorization%20Code%20Grant%20Flow%20with%20PKCE)). This package exposes the `useAuth0` hook, which allows the client to obtain [OpenID](https://auth0.com/docs/authorization/protocols/openid-connect-protocol) information about the authenticated user.
-3. The [AxiosProvider](https://github.com/maybe-finance/maybe-app/blob/main/libs/client/shared/src/providers/AxiosProvider.tsx) uses an interceptor to silently obtain this access token and send it in the `Authorization` header of each API request.
+3. The [AxiosProvider](https://github.com/maybe-finance/maybe/blob/main/libs/client/shared/src/providers/AxiosProvider.tsx) uses an interceptor to silently obtain this access token and send it in the `Authorization` header of each API request.
 
 ```ts
 const accessToken = await getAccessTokenSilently({
@@ -31,7 +31,7 @@ if (accessToken) {
 
 ### How users are associated with internal DB
 
-All PII is stored in Auth0, but the app needs a unique identifier for each user.  On first login/registration, the user is saved to the DB and the [`auth0_id` field is populated](https://github.com/maybe-finance/maybe-app/blob/2d1c2c3aa293fc78b2b3f17a84d164ac4ec9ad03/libs/server/shared/src/middleware/validate-auth0-jwt.ts#L28) with the user's unique Auth0 identifier (no collisions guaranteed).
+All PII is stored in Auth0, but the app needs a unique identifier for each user.  On first login/registration, the user is saved to the DB and the [`auth0_id` field is populated](https://github.com/maybe-finance/maybe/blob/main/libs/server/shared/src/middleware/validate-auth0-jwt.ts#L28) with the user's unique Auth0 identifier (no collisions guaranteed).
 
 ## Part 2: Admin pages
 
@@ -47,6 +47,6 @@ When the flow is complete, the user session is stored on `req.oidc`.
 
 ### Roles
 
-To authorize admin users, the [adminClaimCheck](https://github.com/maybe-finance/maybe-app/blob/2d1c2c3aa293fc78b2b3f17a84d164ac4ec9ad03/apps/server/src/app/admin/admin-router.ts#L47) middleware will grab a custom claim from the decoded access token, check if the user has "Admin" as one of his/her roles, and if not, deny access to all `/admin` pages.
+To authorize admin users, the [adminClaimCheck](https://github.com/maybe-finance/maybe/blob/2d1c2c3aa293fc78b2b3f17a84d164ac4ec9ad03/apps/server/src/app/admin/admin-router.ts#L47) middleware will grab a custom claim from the decoded access token, check if the user has "Admin" as one of his/her roles, and if not, deny access to all `/admin` pages.
 
 By default, [Auth0 Roles](https://auth0.com/docs/authorization/rbac) are not attached to the access token, and must be [added through a rule](https://auth0.com/docs/authorization/authorization-policies/sample-use-cases-rules-with-authorization#add-user-roles-to-tokens) via a [custom, namespaced claim](https://auth0.com/docs/security/tokens/json-web-tokens/create-namespaced-custom-claims).
