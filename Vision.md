@@ -16,11 +16,15 @@ Think of it in terms of "Maybe Core" and "Maybe Apps":
   - Add your accounts (checking, savings, credit card, loans, equity, crypto, etc.)
   - Manage your transactions (rules engine, quick search, categorization, notes, etc.)
 - **Apps** - only choose what you need at your _current stage of life_
-  - Insights and Reporting (net worth, income and expenses by category, key ratios)
+  - Insights and Reporting
+    - Net worth
+    - Income and expenses by category, tags, accounts, etc.
+    - Key ratios (debt/income, runway, etc.)
   - Budgeting
   - Goal setting
   - Retirement planning
   - Investment tracking
+  - TBD...
 
 ## Why should I care as a contributor?
 
