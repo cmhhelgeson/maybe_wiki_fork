@@ -12,7 +12,7 @@ We are in the early days of a rebuild in Ruby on Rails right now.
 
 To be an effective contributor at this point, you will need two things:
 
-1. [Read our Vision](/vision)
+1. [Read our Vision](https://github.com/maybe-finance/maybe/wiki/vision)
 2. An open mind and a high level of autonomy to identify high-value contributions that get us closer to the vision of a "OSS Personal Finance OS"
 
 ## We are a WIP!
