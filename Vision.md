@@ -1,6 +1,6 @@
 ## What is the broad vision?
 
-We are building a "COSS Personal Finance OS".
+We are building a "COSS Personal Finance OS" (commercial, open-source personal finance operating system)
 
 What does this mean?
 
