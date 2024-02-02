@@ -1,1 +1,30 @@
-Welcome to the maybe wiki!
+Welcome to Maybe. We're glad you're here!
+
+## Contributors TL;DR
+
+- Why are we a Rails app now? [Read this](https://x.com/Shpigford/status/1753188910304301260?s=20)
+- How can I start contributing? [Read this](#how-to-contribute)
+- Have an unanswered question? [Join our Discord](https://link.maybe.co/discord)
+
+## How to Contribute
+
+We are in the early days of a rebuild in Ruby on Rails right now.
+
+To be an effective contributor at this point, you will need two things:
+
+1. [Read our Vision](/vision)
+2. An open mind and a high level of autonomy to identify high-value contributions that get us closer to the vision of a "OSS Personal Finance OS"
+
+## We are a WIP!
+
+You may find incomplete areas of this wiki. You may find incomplete areas of the codebase.
+
+We're a tiny team taking on an ambitious goal of building the complete, open-source personal finance OS alongside the community.
+
+To survive, we have to:
+
+- Write code fast
+- Make decisions fast
+- Embrace a WIP mentality
+
+If you're down with that, [join our Discord](https://link.maybe.co/discord) and jump in on the fun!
