@@ -26,16 +26,6 @@ Think of it in terms of "Maybe Core" and "Maybe Apps":
   - Investment tracking
   - TBD...
 
-## Why should a contributor care about the Vision?
-
-We're in the early days of a Rails rebuild, but we are NOT starting from _scratch_.
-
-Maybe 1.0 was written in a different framework and ecosystem, but we built a solid data model and some solid abstractions and patterns for dealing with personal finance.
-
-Our goal is to "lift and shift" many of these ideas to Rails.
-
-To understand how and where to contribute, you need should be familiar with what we are planning to _change_ and what we want to _keep_.
-
 ## What is "Maybe Core"?
 
 We spent 2 years building Maybe 1.0. During that time, our team worked through a lot of engineering decisions around how to build a personal finance app.
