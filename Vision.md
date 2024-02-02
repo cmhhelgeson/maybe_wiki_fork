@@ -36,17 +36,38 @@ Our goal is to "lift and shift" many of these ideas to Rails.
 
 To understand how and where to contribute, you need should be familiar with what we are planning to _change_ and what we want to _keep_.
 
-## From Maybe 1.0 -> Maybe 2.0
+## What is "Maybe Core"?
 
 We spent 2 years building Maybe 1.0. During that time, our team worked through a lot of engineering decisions around how to build a personal finance app.
 
 Some of these decisions were good. Some were not. And some are no longer relevant to an open-source codebase.
 
-The goal of this section is to help YOU (a capable Rails dev who probably knows a bit about personal finance as well) see a clear "migration path" from 1.0 -> 2.0.
+The goal of this section is to help YOU (a capable Rails dev who probably knows a bit about personal finance as well) get a quick glance of what "Maybe Core" represents and where the first iteration of this is headed.
 
 Moving from closed-source to open-source changes our assumptions and feature set. Here are some big ideas to keep in mind.
 
-### Concept #1: Get to 100% Accuracy with a "Demo User"
+### Core Views
+
+Maybe "Core" is largely a backend concern, so the views required are minimal:
+
+- Dashboard
+  - `/`
+  - Provide a historical net worth graph
+  - Provide basic insights for user
+- Accounts
+  - `/accounts`
+  - Allows user to see all accounts and do account-related CRUD actions
+- Account
+  - `/account/:id`
+  - Shows historical balance graph of individual account
+  - Uses delegated types pattern to show "type-specific" views (i.e. a `LoanAccount` might show data about the loan such as interest rate, remaining principal balance, etc.)
+- Transactions
+  - `/transactions`
+  - Provides a "command center" for transactions across all accounts (explained in later section—search, filtering, sorting, pagination, rules, etc.)
+
+### Core Concepts
+
+#### Concept #1: Get to 100% Accuracy with a "Demo User"
 
 In Maybe 1.0, we placed a large focus on syncing user account data from data providers such as Plaid and Finicity.
 
@@ -72,7 +93,7 @@ With this OSS version of the app, our _primary goal_ is twofold:
 
 Once we have a rock-solid "core" that can handle manual accounts, layering in data from external providers will be much easier.
 
-### Concept #2: "Self Service" Philosophy
+#### Concept #2: "Self Service" Philosophy
 
 Moving forward, the app will not deal with "advising". This was something we did in Maybe 1.0 that required a lot of overhead in terms of both compliance and costs.
 
@@ -85,7 +106,7 @@ Things to consider here:
 - Giving user option to include/exclude "apps" (i.e. "grab what apps you need for your current stage of life")
 - Building an editable "rules engine" for classifying transactions
 
-### Concept #3: Dealing with Money (Globally this time)
+#### Concept #3: Dealing with Money (Globally this time)
 
 With an OSS community, we're better equipped to tackle global currency concerns. In Maybe 1.0, everything was centered around USD.
 
@@ -93,7 +114,7 @@ This time around, we'll support global accounts and currencies.
 
 Since we didn't implement this in 1.0, we'll need to build it fresh. Here are some things to consider:
 
-#### Storing Monetary Values
+##### Storing Monetary Values
 
 You can't have "10 monies". 10 USD is very different than 10 CAD. To determine value of money, we need to store:
 
@@ -102,7 +123,7 @@ You can't have "10 monies". 10 USD is very different than 10 CAD. To determine v
 
 By having both pieces of information, we can integrate directly with libraries like `money-rails` to seamlessly convert in/out of minor currency units, do formatting, and with "bolt on" an exchange rate system via something like [Open Exchange Rates](https://openexchangerates.org/).
 
-#### Signage of Money
+##### Signage of Money
 
 Some approaches talk about storing all amounts as positive numbers and add a separate `INFLOW/OUTFLOW` field.
 
@@ -119,7 +140,7 @@ Depending on `Account.type`, this will either increase or decrease the value of 
   - Positive value _decreases_ account value (a "payment" made to account)
   - Negative value _increases_ account value (i.e. "spending" with your CC)
 
-#### Formatting Money in the UI
+##### Formatting Money in the UI
 
 A "default currency" should likely be set at either the `User` or `Family` level. An obvious default here would be `USD`.
 
@@ -143,6 +164,26 @@ account = Account.create(balance: Money.new(50000, "GBP")) # £500.00
 <%= account.balance.format %> <!-- Output will be something like: $10.00 -->
 ```
 
-### Concept #4: Transactions "Command Center"
+#### Concept #4: Transactions "Command Center"
 
-WIP
+Whether it's a basic credit card transaction for your Chipotle meal or a more complex brokerage transaction with `qty`, `shares`, `price`, `cusip`, the concept of a "Transaction" is the basic "building block" of a personal finance app.
+
+Especially since we're starting out "100% manual", users will need a "command center" for viewing and managing transactions across accounts.
+
+This includes but is not limited to things like:
+
+- Searching (full text search)
+- Sorting
+- Filtering (view “All”, “by account”, “by tag”, “by category”, “by date”, etc.)
+- CRUD operations (single or bulk)
+- Transaction Import/Exports
+- Customizable "Rules Engine" for classifying transactions
+  - Reviewing “auto classified” transactions (once 3rd party data is integrated)
+
+#### Concept #5: Charts (long-term)
+
+Having a standardized and composable charts module will be a long-term priority.
+
+Maybe 1.0 was known for having clean and interactive charts to view historical data. We previously used Visx (a React library on top of D3.js) which made this a bit easier.
+
+Now that we're in Rails, a vanilla D3.js integration would be a great addition for building Maybe-branded, "standardized" charts.
