@@ -108,8 +108,8 @@ Since we didn't implement this in 1.0, we'll need to build it fresh. Here are so
 
 You can't have "10 monies". 10 USD is very different than 10 CAD. To determine value of money, we need to store:
 
-- `amount_cents` - stored in _minor currency units_ (e.g. for USD, we'd store `100` "cents" to represent $1.00). Generally, a `BigInt` type is good here as it is large enough for any currency (think cryptocurrencies that have minted an extremely high number of coins).
-- `currency_iso` - the ISO currency code
+- `amount` - stored in _minor currency units_ (e.g. for USD, we'd store `100` "cents" to represent $1.00). Generally, a `BigInt` type is good here as it is large enough for any currency (think cryptocurrencies that have minted an extremely high number of coins).
+- `currency` - the ISO currency code
 
 By having both pieces of information, we can integrate directly with libraries like `money-rails` to seamlessly convert in/out of minor currency units, do formatting, and with "bolt on" an exchange rate system via something like [Open Exchange Rates](https://openexchangerates.org/).
 
