@@ -22,7 +22,7 @@ For the 10,000-foot overview, [read the vision](https://github.com/maybe-finance
 - Full features that align with the Vision are welcomed
 - Early on, we are aggressively _limiting_ additional Gems, CI/CD processes, and other overhead that adds complexity
 - Testing is welcomed, but 100% code coverage is not a priority.
-- We favor simplicity over optionality
+- We favor simplicity over optionality (i.e. the less decision fatigue a dev has, the better)
 
 ## We are a WIP!
 
