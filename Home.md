@@ -20,7 +20,10 @@ To be an effective contributor at this point, you will need two things:
 For the 10,000-foot overview, [read the vision](https://github.com/maybe-finance/maybe/wiki/vision).  For some quick guidelines, here are a few ideas to help get started:
 
 - Full features that align with the Vision are welcomed
-- Early on, we are aggressively _limiting_ additional Gems, CI/CD processes, and other overhead that adds complexity
+- Early on, we are aggressively _limiting_:
+  - Additional Gems
+  - Additional CI/CD processes
+  - Anything that adds complexity or overhead that is not 100% necessary
 - Testing is welcomed, but 100% code coverage is not a priority.
 - We favor simplicity over optionality (i.e. the less decision fatigue a dev has, the better)
 
