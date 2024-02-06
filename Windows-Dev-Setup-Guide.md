@@ -1,4 +1,4 @@
-For Windows development, we recommend using Windows Subsystem for Linux as this closely resembles the architecture the final app is deployed to in production.
+For Windows development, we recommend using Windows Subsystem for Linux as this closely resembles the architecture the final app is deployed to in production and is the most common way to run a Rails app on Windows.
 
 Follow the steps below to get that setup.
 
