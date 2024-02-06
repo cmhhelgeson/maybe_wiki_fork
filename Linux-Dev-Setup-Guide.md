@@ -2,7 +2,7 @@ If running the project locally, follow these instructions to get started:
 
 ## Note on Linux Distros
 
-This guide is specifically for `Ubuntu 22.04`. If you are using another distro, please [let us know in Discord](https://link.maybe.co/discord) so we can add instructions for it.
+This guide is specifically for `Ubuntu 22.04`. If you are using another distro (other than Ubuntu) and cannot get the project started, please [let us know in Discord](https://link.maybe.co/discord) so we can add instructions for it.
 
 ## Install Ruby
 
