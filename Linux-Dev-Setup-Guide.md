@@ -64,3 +64,9 @@ bundle install
 rails db:setup
 bin/dev
 ```
+
+## Potential Issues
+
+*I'm attempting to install version 3.3.0 of Ruby, but my terminal says version 3.3.0 is not available*
+
+
