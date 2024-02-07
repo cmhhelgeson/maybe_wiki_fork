@@ -67,7 +67,7 @@ bin/dev
 
 ## Potential Issues
 
-*I'm attempting to install version 3.3.0 of Ruby, but my terminal says version 3.3.0 is not available?*
+***<u>I'm attempting to install version 3.3.0 of Ruby, but my terminal says version 3.3.0 is not available?<u>***
 
 Run the following command to list the available versions of ruby that can be installed by the rbenv's ruby-build plugin.
 
@@ -75,15 +75,15 @@ Run the following command to list the available versions of ruby that can be ins
 rbenv install --list
 ```
 
-If version '3.3.0' is not listed as one of the options within the list, you may need to upgrade the ruby-build plugin within rbenv to gain access to a downloadabe version of ruby 3.3.0. To update ruby-build, simply enter the following command:
+If version '3.3.0' is not listed as one of the options within the displayed list, you may need to upgrade rbenv's ruby-build installation to gain access to Ruby Version 3.3.0. To update ruby-build, simply enter the following command:
 
 ```sh
 cd "$(rbenv root)"/plugins/ruby-build && git pull
 ```
 
-Run the --list command again to see determine whether Ruby version 3.3.0 can now be downloaded.
+Run the --list command again to  determine whether Ruby Version 3.3.0 can now be downloaded.
 
-*I've installed Ruby 3.3.0 and set it as my default Ruby version. However, a different version of Ruby is still listed as my default?*
+***<u>I've installed Ruby 3.3.0 via rbenv and set it as my default Ruby version. However, a different version of Ruby is still listed as my default?<u>***
 
 If rbenv global 3.3.0 seems to run but doesn't change the Ruby version, your shell might be using a different ruby installation (such as one installed via *apt*). Confirm that you are using the rbenv managed version of ruby by running this command:
 
@@ -100,7 +100,7 @@ export PATH="/root/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 ```
 
-Save the file, reload your shell profile and verify that you're using the rbenv managed ruby installation by running these commands:
+Save the file, reload your shell profile, and verify that you're using the rbenv managed ruby installation by running these commands:
 
 ```sh
 source /root/.bashrc
