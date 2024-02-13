@@ -39,7 +39,7 @@ The app/views folder contains most of the html for our project, all found within
 
 Folder that defines the application's models. According to Rails conventions, model naming schemes will directly correlate to database tables with the same name (albeit pluralized). For instance, model Family will correlate to database table 'familes', and model Account::Vehicle will correlate to database table 'account_vehicles'. By coupling models and database tables in this way, Rails allows us to write generalizable ruby code that operates on our databases. 
 
-- **/app/models/conerns**: Folder where each file contains a module that extends ActiveSupport::Concern, otherwise known as concerns. A concern is the same as any other module that can be inherited by classes, just with a specific structure that delineates how instance methods and class methods are created on the inheriting class. To put it simply, any methods defined in the 'included do' block become instance methods of the inheriting class. An example call on such a method would look like this:
+**/app/models/conerns**: Folder where each file contains a module that extends ActiveSupport::Concern, otherwise known as concerns. A concern is the same as any other module that can be inherited by classes, just with a specific structure that delineates how instance methods and class methods are created on the inheriting class. To put it simply, any methods defined in the 'included do' block become instance methods of the inheriting class. An example call on such a method would look like this:
 
 ```rb
 class_instance.new_method arg1, arg2
@@ -52,7 +52,9 @@ Class.new_method arg1, arg2
 
 To learn more about concerns, read the article at this link: https://www.writesoftwarewell.com/how-rails-concerns-work-and-how-to-use-them/
 
+***Notable Concenrs***
 
+Accountable: 
 
 
 
